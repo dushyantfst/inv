@@ -1,5 +1,7 @@
 <?php
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 /*
  * InvoicePlane
@@ -13,15 +15,13 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Class Sessions
  */
-class Sessions extends Base_Controller
-{
-    public function index()
-    {
+class Sessions extends Base_Controller {
+
+    public function index() {
         redirect('sessions/login');
     }
 
-    public function login()
-    {
+    public function login() {
         $view_data = array(
             'login_logo' => get_setting('login_logo')
         );
@@ -46,6 +46,11 @@ class Sessions extends Base_Controller
 
                     if ($this->authenticate($this->input->post('email'), $this->input->post('password'))) {
                         if ($this->session->userdata('user_type') == 1) {
+                            $ip = $this->input->ip_address();
+                            $timestamp = $this->session->userdata('__ci_last_regenerate');
+                            $sql = "INSERT INTO ip_sessions (id, ip_address, timestamp) VALUES (1, '" . $ip . "'," . $this->db->escape($timestamp) . ")";
+                            $this->db->query($sql);
+                            $this->db->affected_rows();
                             redirect('dashboard');
                         } elseif ($this->session->userdata('user_type') == 2) {
                             redirect('guest');
@@ -54,11 +59,8 @@ class Sessions extends Base_Controller
                         $this->session->set_flashdata('alert_error', trans('loginalert_credentials_incorrect'));
                         redirect('sessions/login');
                     }
-
                 }
-
             }
-
         }
 
         $this->load->view('session_login', $view_data);
@@ -69,8 +71,7 @@ class Sessions extends Base_Controller
      * @param $password
      * @return bool
      */
-    public function authenticate($email_address, $password)
-    {
+    public function authenticate($email_address, $password) {
         $this->load->model('mdl_sessions');
 
         if ($this->mdl_sessions->auth($email_address, $password)) {
@@ -80,8 +81,14 @@ class Sessions extends Base_Controller
         return false;
     }
 
-    public function logout()
-    {
+    public function logout() {
+
+        $ip = $this->input->ip_address();
+        $timestamp = $this->session->userdata('__ci_last_regenerate');
+        $sql = "DELETE from ip_sessions where timestamp=". $this->db->escape($timestamp) . " and ip_address=" . $this->db->escape($ip) ;
+        $this->db->query($sql);
+        $this->db->affected_rows();
+
         $this->session->sess_destroy();
 
         redirect('sessions/login');
@@ -91,8 +98,7 @@ class Sessions extends Base_Controller
      * @param null $token
      * @return mixed
      */
-    public function passwordreset($token = null)
-    {
+    public function passwordreset($token = null) {
         // Check if a token was provided
         if ($token) {
             $this->db->where('user_passwordreset_token', $token);
@@ -140,7 +146,7 @@ class Sessions extends Base_Controller
 
             // Call the save_change_password() function from users model
             $this->mdl_users->save_change_password(
-                $user_id, $new_password
+                    $user_id, $new_password
             );
 
             // Update the user and set him active again
@@ -153,7 +159,6 @@ class Sessions extends Base_Controller
 
             // Redirect back to the login form
             redirect('sessions/login');
-
         }
 
         // Check if the password reset form was used
@@ -186,7 +191,7 @@ class Sessions extends Base_Controller
                 $email_resetlink = site_url('sessions/passwordreset/' . $token);
                 $email_message = $this->load->view('emails/passwordreset', array(
                     'resetlink' => $email_resetlink
-                ), true);
+                        ), true);
                 $email_from = 'system@' . preg_replace("/^[\w]{2,6}:\/\/([\w\d\.\-]+).*$/", "$1", base_url());
 
                 // Mail the invoice with the pre-configured mailer if possible
@@ -197,7 +202,6 @@ class Sessions extends Base_Controller
                     if (!phpmail_send($email_from, $email, trans('password_reset'), $email_message)) {
                         $email_failed = true;
                     }
-
                 } else {
 
                     $this->load->library('email');

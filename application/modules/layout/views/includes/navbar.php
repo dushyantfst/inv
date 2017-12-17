@@ -86,8 +86,10 @@
                         <li><?php echo anchor('tasks/form', trans('create_task')); ?></li>
                         <li><?php echo anchor('tasks/index', trans('show_tasks')); ?></li>
                         <li><?php echo anchor('projects/index', trans('projects')); ?></li>
+                        <li><?php echo anchor('../backoffice/web/index.php?r=ip-tasks', trans('All Tasks')); ?></li>
+                        <li><?php echo anchor('../backoffice/web/index.php?r=site&timestamp='. $this->session->userdata('__ci_last_regenerate'), trans('Show Task Status')); ?></li>
                     </ul>
-                </li>
+                </li>anchor
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -157,6 +159,7 @@
                        if ($this->session->userdata('user_company')) {
                            print(" (" . htmlsc($this->session->userdata('user_company')) . ")");
                        }
+//                       var_dump($this->session->userdata('__ci_last_regenerate'));
                        ?>">
                         <i class="fa fa-user"></i>
                         <span class="visible-xs">&nbsp;<?php

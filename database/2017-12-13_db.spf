@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>invoice</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-2512944581273426818</string>
+			<key>name</key>
+			<string>127.0.0.1</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentFilter</key>
+			<dict/>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeACll2ZW5kb3JfaWTSHh8t
+			Ll8QD05TTXV0YWJsZVN0cmluZ6MtLyNYTlNTdHJpbmfSHh8xMl5O
+			U011dGFibGVBcnJheaMxMyNXTlNBcnJhedIeHyI1oiIjXxAPTlNL
+			ZXllZEFyY2hpdmVy0Tg5VGRhdGGAAQAIABEAGgAjAC0AMgA3AEUA
+			SwBSAFoAZQBsAHAAcgB0AHYAegB8AH4AgACCAIcAjACRALoAwQDC
+			AMMAxQDKANUA3gD0APgBBQEOARMBFQEXARkBHgEoASoBNAE5AUsB
+			TwFYAV0BbAFwAXgBfQGAAZIBlQGaAAAAAAAAAgEAAAAAAAAAOgAA
+			AAAAAAAAAAAAAAAAAZw=
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {1083, 561}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>ALTER TABLE ip_tasks
+ADD task_start_date date; 
+
+ALTER TABLE ip_tasks
+ADD task_assigned varchar(100); 
+
+
+CREATE TABLE `ip_vendor` (
+  `vendor_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `vendor_name` varchar(100) DEFAULT NULL,
+  `vendor_address` varchar(512) DEFAULT NULL,
+  `vendor_email` varchar(100) DEFAULT NULL,
+  `vendor_phone` varchar(15) DEFAULT NULL,
+  `vendor_pincode` int(11) DEFAULT NULL,
+  PRIMARY KEY (`vendor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+</string>
+			<key>table</key>
+			<string>ip_vendor</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>197</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>ALTER TABLE ip_tasks
+ADD task_assigned varchar(100)</string>
+		<string>ALTER TABLE ip_tasks
+ADD task_start_date date</string>
+		<string>ALTER TABLE ip_tasks
+ADD task_finish_date date</string>
+		<string>ALTER TABLE it_tasks
+ADD task_finish_date date</string>
+		<string>delete from base_report where id &gt; 10 and id &lt; 108</string>
+		<string>FLUSH PRIVILEGES</string>
+		<string>GRANT ALL ON wp_arctoplabs_blog.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'password'</string>
+		<string>select * from t_follower order by 1 DESC</string>
+		<string>INSERT INTO `profile` (`user_id`, `name`, `public_email`, `phone`, `alternate_phone`, `gravatar_email`, `gravatar_id`, `location`, `website`, `bio`, `profile_image`)
+VALUES
+	(12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`)
+VALUES
+	('User', '12', 1492508312);
+INSERT INTO `UserApp` (`id`, `Name`, `Description`, `DbName`, `ws`, `isEncrypt`, `auth_key`, `CreatedDate`, `UserId`, `CreatedBy`, `Active`, `ProviderID`)
+VALUES
+	(40, 'schneider', 'customization for schneider', 'swp2Zsl3rAHc3xjVgR_Chb-qPX770FbQ-schneider', 'schneider', 1, 'swp2Zsl3rAHc3xjVgR_Chb-qPX770FbQ', '2017-04-18 15:15:15', 12, 'peoplestrong', 1, 1),
+	(41, 'Mahindra_PS_SF', 'Mahindra SF integration with Peoplestrong.', 'swp2Zsl3rAHc3xjVgR_Chb-qPX770FbQ-Mahindra_PS_SF', 'Mahindra_PS_SF', 1, 'swp2Zsl3rAHc3xjVgR_Chb-qPX770FbQ', '2017-05-10 10:15:22', 12, 'peoplestrong', 1, 1)</string>
+		<string>INSERT INTO `user` (`id`, `username`, `email`, `password_hash`, `auth_key`, `auth_secret`, `hook_key`, `hook_secret`, `confirmed_at`, `unconfirmed_email`, `blocked_at`, `registration_ip`, `created_at`, `updated_at`, `flags`)
+VALUES
+	(12, 'peoplestrong', 'peoplestrong@arc.com', '$2y$10$5N9omcoMQl3pywYuJpJFdeWhfTIfpj9yOh3QH3bup1FCKgcb/YL5W', 'swp2Zsl3rAHc3xjVgR_Chb-qPX770FbQ', 'QRzEFIIgST9TfYL6dDU9o6t_RqMGJwwU89oOJVpmnXcbq1pDUo', 'ff34f234f11a77f774f4444f588fb936', 'be-tb6lslPEoi4kzK79cm0OjVNp_OJSnq90gYEcQfljvws8gsP', 1492508220, NULL, NULL, '127.0.0.1', 1492508220, 1492508220, 0)</string>
+		<string>update `servermail`.`virtual_users` set
+   `password` = ENCRYPT('c0nt@ct', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))) where `email` = 'contact@arctoplabs.com'</string>
+		<string>select * from virtual_users where email = 'contact@arctoplabs.com'</string>
+		<string>INSERT INTO `servermail`.`virtual_users`
+  (`domain_id`, `password` , `email`)
+VALUES
+  ('8', ENCRYPT('$ale$', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))) , 'sales@arctoplabs.com')</string>
+		<string>INSERT INTO `servermail`.`virtual_users`
+  (`domain_id`, `password` , `email`)
+VALUES
+  ('8', ENCRYPT('tech$upp0rt', CONCAT('$6$', SUBSTRING(SHA(RAND()), -16))) , 'techsupport@arctoplabs.com')</string>
+		<string>SELECT employee_id, YEAR(punch_in_utc_time) as "Year" , MONTH(punch_in_utc_time) as "Month", COUNT(id)
+FROM ohrm_attendance_record
+GROUP BY YEAR(punch_in_utc_time), MONTH(punch_in_utc_time), employee_id</string>
+		<string>select * from ohrm_attendance_record where employee_id = 3 order by 1 desc limit 100
+
+punch_in_utc_time
+
+SELECT employee_id, YEAR(punch_in_utc_time) as "Year" , MONTH(punch_in_utc_time) as "Month", COUNT(id)
+FROM ohrm_attendance_record
+GROUP BY YEAR(punch_in_utc_time), MONTH(punch_in_utc_time), employee_id</string>
+		<string>SELECT YEAR(punch_in_utc_time) as "Year" , MONTH(punch_in_utc_time) as "Month", COUNT(id)
+FROM ohrm_attendance_record
+GROUP BY YEAR(punch_in_utc_time), MONTH(punch_in_utc_time)</string>
+		<string>SELECT COUNT(id)
+FROM ohrm_attendance_record
+GROUP BY YEAR(punch_in_utc_time), MONTH(punch_in_utc_time)</string>
+		<string>SELECT COUNT(id)
+FROM ohrm_attendance_record
+GROUP BY punch_in_utc_time.Year, punch_in_utc_time.MONTH</string>
+		<string>select * from ohrm_attendance_record where employee_id = 3 order by 1 desc limit 100</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.6.35</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
