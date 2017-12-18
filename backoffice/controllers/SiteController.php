@@ -62,17 +62,17 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex($timestamp) {
-        $ip = $this->getRealIp();
-        $row = (new \yii\db\Query())
-                ->from('ip_sessions')
-                ->where(['and', 'timestamp=' . $timestamp, "ip_address='" . $ip . "'"])
-                ->one();
-        var_dump($row);
-        if ($row) {
+//        $ip = $this->getRealIp();
+//        $row = (new \yii\db\Query())
+//                ->from('ip_sessions')
+//                ->where(['and', 'timestamp=' . $timestamp, "ip_address='" . $ip . "'"])
+//                ->one();
+//        var_dump($row);
+//        if ($row) {
             return $this->render('index');
-        } else {
-            Yii::$app->getResponse()->redirect('index.php');
-        }
+//        } else {
+//            Yii::$app->getResponse()->redirect('index.php');
+//        }
     }
 
     /**
