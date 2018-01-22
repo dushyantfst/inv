@@ -132,11 +132,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($quotes as $quote) { ?>
+                        <?php  foreach ($quotes as $quote) { ?>
                             <tr>
                                 <td>
                                 <span class="label
-                                <?php echo $quote_statuses[$quote->quote_status_id]['class']; ?>">
+                                <?php  echo $quote_statuses[$quote->quote_status_id]['class']; ?>">
                                     <?php echo $quote_statuses[$quote->quote_status_id]['label']; ?>
                                 </span>
                                 </td>
@@ -147,7 +147,7 @@
                                     <?php echo anchor('quotes/view/' . $quote->quote_id, ($quote->quote_number ? $quote->quote_number : $quote->quote_id)); ?>
                                 </td>
                                 <td>
-                                    <?php echo anchor('clients/view/' . $quote->client_id, htmlsc(format_client($quote))); ?>
+                                    <?php echo htmlsc(format_client($quote)); ?>
                                 </td>
                                 <td class="amount">
                                     <?php echo format_currency($quote->quote_total); ?>

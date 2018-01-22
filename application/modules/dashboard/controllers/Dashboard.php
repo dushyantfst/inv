@@ -43,7 +43,6 @@ class Dashboard extends Admin_Controller
                 'task_statuses' => $this->mdl_tasks->statuses(),
             )
         );
-
         $this->layout->buffer('content', 'dashboard/index');
         $this->layout->render();
     }
