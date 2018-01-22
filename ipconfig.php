@@ -4,8 +4,8 @@
 # Set your URL without trailing slash here, e.g. http://your-domain.com
 # If you use a subdomain, use http://subdomain.your-domain.com
 # If you use a subfolder, use http://your-domain.com/subfolder
-IP_URL=http://localhost:8080
-#http://invoice.arctoplabs.com
+#IP_URL=http://localhost:8080
+IP_URL=http://invoice.arctoplabs.com
 
 # Having problems? Enable debug by changing the value to 'true' to enable advanced logging
 ENABLE_DEBUG=true
