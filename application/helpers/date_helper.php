@@ -1,5 +1,7 @@
 <?php
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 /*
  * InvoicePlane
@@ -17,8 +19,7 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
  *
  * @return array
  */
-function date_formats()
-{
+function date_formats() {
     return array(
         'm/d/Y' => array(
             'setting' => 'm/d/Y',
@@ -76,8 +77,10 @@ function date_formats()
  * @param bool $ignore_post_check
  * @return bool|DateTime|string
  */
-function date_from_mysql($date, $ignore_post_check = false)
-{
+function date_from_mysql($date, $ignore_post_check = false) {
+    if($date == NULL) {
+        $date = '0000-00-00';
+    }
     if ($date <> '0000-00-00') {
         if (!$_POST or $ignore_post_check) {
             $CI = &get_instance();
@@ -94,8 +97,7 @@ function date_from_mysql($date, $ignore_post_check = false)
  * @param $timestamp
  * @return string
  */
-function date_from_timestamp($timestamp)
-{
+function date_from_timestamp($timestamp) {
     $CI = &get_instance();
 
     $date = new DateTime();
@@ -107,11 +109,16 @@ function date_from_timestamp($timestamp)
  * @param $date
  * @return string
  */
-function date_to_mysql($date)
-{
+function date_to_mysql($date) {
+    if ($date == NULL || $date === '') {
+        return '';
+    }
     $CI = &get_instance();
 
     $date = DateTime::createFromFormat($CI->mdl_settings->setting('date_format'), $date);
+    if(!$date){
+        return '';
+    }
     return $date->format('Y-m-d');
 }
 
@@ -119,8 +126,7 @@ function date_to_mysql($date)
  * @param $date
  * @return bool
  */
-function is_date($date)
-{
+function is_date($date) {
     $CI = &get_instance();
     $format = $CI->mdl_settings->setting('date_format');
     $d = DateTime::createFromFormat($format, $date);
@@ -130,8 +136,7 @@ function is_date($date)
 /**
  * @return string
  */
-function date_format_setting()
-{
+function date_format_setting() {
     $CI = &get_instance();
 
     $date_format = $CI->mdl_settings->setting('date_format');
@@ -144,8 +149,7 @@ function date_format_setting()
 /**
  * @return string
  */
-function date_format_datepicker()
-{
+function date_format_datepicker() {
     $CI = &get_instance();
 
     $date_format = $CI->mdl_settings->setting('date_format');
@@ -163,8 +167,7 @@ function date_format_datepicker()
  * @param $increment - interval (1D, 2M, 1Y, etc)
  * @return string
  */
-function increment_user_date($date, $increment)
-{
+function increment_user_date($date, $increment) {
     $CI = &get_instance();
 
     $mysql_date = date_to_mysql($date);
@@ -182,8 +185,7 @@ function increment_user_date($date, $increment)
  * @param $increment
  * @return string
  */
-function increment_date($date, $increment)
-{
+function increment_date($date, $increment) {
     $new_date = new DateTime($date);
     $new_date->add(new DateInterval('P' . $increment));
     return $new_date->format('Y-m-d');
